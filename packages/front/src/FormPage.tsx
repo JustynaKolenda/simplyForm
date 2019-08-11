@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormSimplys } from './FormSimply';
 import {connect} from 'react-redux'
-import { simplyForm } from './redux/simplyFormRedux/simplyFormAction';
+import {FormAction} from './redux/FormAction';
 
 
  class FormPage extends React.Component<any,any> {
@@ -16,9 +16,10 @@ import { simplyForm } from './redux/simplyFormRedux/simplyFormAction';
     }
 }
 
+
 const mapDispatchToProps = (dispatch: any)=> {
     return{
-        sendForm: (form: any)=> dispatch(simplyForm(form))
+        sendForm: (form: any)=> dispatch(FormAction.simplyForm(form))
     }
 }
 export default connect(null, mapDispatchToProps)(FormPage);

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@project/common": "*",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.6.8",
     "@types/react": "^16.8.23",
@@ -12,7 +13,9 @@
     "@types/react-router-dom": "^4.3.4",
     "@types/react-router-redux": "^5.0.18",
     "@types/react-widgets": "^4.3.3",
+    "@types/reactstrap": "^8.0.1",
     "@types/redux-form": "^8.1.4",
+    "bootstrap": "^4.3.1",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-datepicker": "^2.8.0",
@@ -23,13 +26,13 @@
     "react-scripts": "3.0.1",
     "react-simple-datepicker": "^0.1.4",
     "react-widgets": "^4.4.11",
+    "reactstrap": "^8.0.1",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-form": "^8.2.4",
     "redux-thunk": "^2.3.0",
     "save-dev": "^2.0.0",
-    "typescript": "^3.5.3",
-    "@project/common": "*"
+    "typescript": "^3.5.3"
   },
   "scripts": {
     "start": "react-scripts start",

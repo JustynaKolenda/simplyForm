@@ -6,7 +6,7 @@ import {WrappedFieldProps} from 'redux-form'
 export const renderDateTimePicker = (props: WrappedFieldProps) =>{
     const { input: { onChange, value }, meta } = props
     return(
-      <div>
+      <div  className="col-lg-6 App--error App--date">
         <DatePicker
         selected={value}
         onChange={onChange}
