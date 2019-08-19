@@ -24,9 +24,6 @@ npm t -- --watch
 ```
 ```````````````````````````````````````````````````````````
 To start application :
-- cd packages
--cd common
-- npm run build
 ```
 on first terminal console use to run node : 
 cd packages
@@ -47,6 +44,10 @@ mongod
 
 ````
 on fourth terminal console use to run react-redux:
+- cd packages
+-cd common
+- npm run build
+and then go to :
 cd packages
 cd front
 lerna bootstrap
