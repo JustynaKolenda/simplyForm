@@ -19,7 +19,6 @@ export class FormAction {
             }
         } 
     }
-
     private static setMesage (typeMsg: ActionEnum.TypeMsg, mesage: string){
         return{
             type:  ActionEnum.Form.SET_MESAGE,

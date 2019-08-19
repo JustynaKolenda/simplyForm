@@ -2,30 +2,49 @@ import { Request, Response } from "express";
 import mongodb = require("mongodb")
 import MongoClient = mongodb.MongoClient;
 
-const  dbUrl = "mongodb://localhost:27017/simplyForm";
-const { validationResult } = require('express-validator');
+export class FormControler {
+    res: Response;
+    req: Request;
+    client: any;
+    constructor(response: Response, request: Request){
+        this.res = response;
+        this.req = request; 
+        this.chceckAddtoDb = this.chceckAddtoDb.bind(this);
+        this.checkConnectToDb = this.checkConnectToDb.bind(this);
+        this.saveForm = this.saveForm.bind(this);
+    }
 
-export const saveForm = (req: Request, res: Response) => {
-        const errors = validationResult(req)
-        if (!errors.isEmpty()) {
-        return res.status(422).json({ errors: errors.array() })
+    public saveForm () {
+        const  dbUrl = "mongodb://localhost:27017/simplyForm";
+        const { validationResult } = require('express-validator');
+
+            const errors = validationResult(this.req)
+            if (!errors.isEmpty()) {
+            return this.res.status(422).json({ errors: errors.array() })
+            }
+            MongoClient.connect(dbUrl, this.checkConnectToDb)
         }
-        MongoClient.connect(dbUrl, function(err, client){
+
+    public checkConnectToDb (err:any, client:any){
             if(err) {
-                res.status(500);
-                res.json({error : "No conect to database"});
+                this.res.status(500);
+                this.res.json({error : "No conect to database"});
                 return err;
             }
-            var db = client.db('simplyForm')
-            db.collection("form").insert(req.body, function(err: any, doc: any){
-                if(err){
-                    res.status(500);
-                    res.json({error : "Could not be added to the database"});
-                    return err;
-                }
-                res.json(doc); 
-                client.close();
-            })
+            this.client = client;
+            var db = this.client.db('simplyForm')
+            db.collection("form").insert(this.req.body, this.chceckAddtoDb)
             
-        })
-    }
+        }
+
+    public chceckAddtoDb(err: any, doc: any) {
+            if(err){
+                this.res.status(500);
+                this.res.json({error : "Could not be added to the database"});
+                return err;
+            }
+            this.res.json(doc); 
+            this.client.close();
+        }
+
+}

@@ -16,7 +16,7 @@ const reducer = combineReducers<StateRoot>({
 
 const middleware = compose(
     applyMiddleware(thunk),
-    composeWithDevTools( )
+    (window['__REDUX_DEVTOOLS_EXTENSION__' as any]) ? composeWithDevTools() : (f: Function) => f
 )
 
-export const store = createStore(reducer,middleware)
+export const store = createStore(reducer,middleware as any)

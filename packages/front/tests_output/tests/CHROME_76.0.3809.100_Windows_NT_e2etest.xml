@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="1"
+            tests="1">
+
+  <testsuite name="tests.e2etest"
+    errors="1" failures="1" hostname="" id="" package="tests" skipped="0"
+    tests="1" time="24.85" timestamp="">
+  
+    <testcase name="Check, when have corect value " classname="tests.e2etest" time="24.85" assertions="2">
+
+      <failure message="Timed out while waiting for element &lt;.MsgShow--sucess&gt; to be present for 5000 milliseconds. - expected [0;32m&#34;found&#34;[0m but got: [0;31m&#34;not found&#34;[0m">    at process._tickCallback (internal/process/next_tick.js:68:7)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

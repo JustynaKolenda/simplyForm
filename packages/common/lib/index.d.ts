@@ -1,2 +1,3 @@
 import * as ValidationForm from "./ValidationForm";
-export { ValidationForm };
+import * as formModel from "./formModel";
+export { ValidationForm, formModel };

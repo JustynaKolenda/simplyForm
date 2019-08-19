@@ -8,13 +8,13 @@ type Props ={
 }
 
 export const InputValid = (props: WrappedFieldProps & Props) =>{
-    const { input, meta, label, placeholder,  } = props
+    const { input, meta, label, placeholder,e2eId} = props
     return(
         <div className="App--error" >
             <label htmlFor={input.name}>{label}</label>
-            <input className="col-lg-6" {...input} placeholder={placeholder}  />
+            <input className="col-lg-6" {...input}  id={e2eId} placeholder={placeholder}  />
                 {(meta.touched &&
-                    (meta.error && <div>{meta.error}</div>
+                    (meta.error && <div id={e2eId + 'error'}>{meta.error}</div>
                         )) ||
                     (meta.warning && <span>{meta.warning}</span>)
                 } 

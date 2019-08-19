@@ -4,7 +4,6 @@ import {StateRoot} from './redux/reducer'
 
 export class MsgComp extends React.Component <any,any> {
 
-
     render(){
       const { mesage, typeOfMsg } = this.props
       const msgClass = (typeOfMsg === 'SUCESS'? "MsgShow MsgShow--sucess" : "MsgShow MsgShow--error")
@@ -16,7 +15,6 @@ export class MsgComp extends React.Component <any,any> {
     }
 
 }
-
     const mapStateToProps = (state: StateRoot) =>{
         return{
             mesage : state.message.mesage ,

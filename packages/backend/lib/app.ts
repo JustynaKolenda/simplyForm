@@ -1,5 +1,6 @@
-// import {ValidationForm} from "@project/common"
-import * as formControler from './formControler'
+import {ValidationForm} from "@project/common"
+import {FormControler} from './formControler'
+import { Request, Response } from "express";
 import express = require('express');
 import bodyParser = require("body-parser");
 import helmet = require('helmet')
@@ -20,12 +21,15 @@ app.use(function (req, res, next) {
 });
 
 app.post("/form", [
-    check('firstName').not().isEmpty().withMessage('Name must have min 3 characters').isLength({min: 3}),
-    check('lastName').not().isEmpty().withMessage('Surname must have min 3 characters').isLength({min: 3}),
-    check('email','Your email is not valid').not().isEmpty().isEmail(),
-    check('date', 'Chose your date').not().isEmpty().optional(),
+    check('firstName').not().isEmpty().withMessage('Name must have at least three characters').isLength({min: 3}),
+    check('lastName').not().isEmpty().withMessage('Surname must have at least three characters').isLength({min: 3}),
+    check('email','Email is incorect').not().isEmpty().isEmail(),
+    check('date','Chose your date ').not().isEmpty().optional(),
   ],
-    formControler.saveForm) 
+    (req: Request, res: Response)=>{
+      const cos = new FormControler(res, req);
+      return cos.saveForm();
+    }) 
 
 
  app.use(express.json());

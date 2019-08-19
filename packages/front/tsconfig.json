@@ -20,6 +20,6 @@
     "jsx": "preserve"
   },
   "include": [
-    "src", "../common/ValidationForm.tsx"
+    "src", "../common/ValidationForm.tsx", "e2e"
   ]
 }
